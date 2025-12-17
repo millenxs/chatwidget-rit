@@ -1,0 +1,448 @@
+version: "3.1"
+nlu:
+- intent: Menu_doacao
+  examples: |
+    - Quero doar itens
+    - Quero doar dinheiro
+    - Quais são as opções para doar?
+    - Gostaria de doar
+    - Como posso doar?
+    - como posso ajudar a ong
+    - quero fazer uma doação
+
+- intent: Menu_nota_fiscal_paulista
+  examples: |
+    - doar nota
+    - nota
+    - nota fiscal
+    - nota fiscal paulista
+    - quero saber sobre nota fiscal
+
+- intent: Sub_doacao_bancaria
+  examples: |
+    - Onde encontro os dados bancários?
+    - Como fazer um depósito para ajudar vocês?
+    - Tem como doar direto pelo aplicativo do banco?
+    - Posso doar direto no banco?
+    - Quero doar com depósito em conta
+    - Me envia o número da conta da ONG
+    - Quais são os bancos que vocês usam?
+    - Como faço uma doação bancária?
+    - Aceitam transferência?
+    - Posso fazer um DOC ou TED para doar?
+
+- intent: Sub_doacao_dinheiro_cartao
+  examples: |
+    - Cartão de crédito ou débito # FRASE EXATA DO MENU PRINCIPAL
+    - Como faço para doar com meu cartão?
+    - Vocês aceitam pagamento com boleto?
+    - A doação pode ser feita com dinheiro?
+    - Tem opção de doar com cartão?
+    - Quais meios de pagamento vocês aceitam?
+    - Consigo doar com crédito ou débito?
+    - Como funciona a doação com boleto?
+    - Tem como doar por boleto?
+    - Aceita boleto bancário?
+    - Vocês aceitam doação em dinheiro?
+    - Posso usar meu cartão para doar?
+    - Como faço uma doação com cartão?
+    - Dá pra doar por cartão de débito?
+    - Quero doar com cartão de crédito
+    - Dá pra doar com cartão?
+    - Como doar em espécie?
+    - Posso doar em dinheiro?
+    - Posso doar com cartão?
+    - Quero doar em espécie
+
+- intent: Sub_doacao_entrega_itens
+  examples: |
+    - Entrega presencial # FRASE EXATA DO MENU PRINCIPAL
+    - Como faço para entregar os materiais?
+    - Tem algum outro endereço de entrega?
+    - Preciso agendar a entrega da doação?
+    - Existe outro lugar para deixar as doações?
+    - A ONG aceita entrega pessoalmente?
+    - A doação precisa ser levada até vocês?
+    - Onde fica o ponto de coleta?
+    - Posso entregar fora do horário comercial?
+    - Vocês fazem retirada de doações?
+
+- intent: Sub_doacao_formas_doar
+  examples: |
+    - Quais são as formas de apoio à ONG?
+    - Além de dinheiro, o que mais posso doar?
+    - Posso doar meu conhecimento?
+    - É possível doar meu tempo como voluntário?
+    - Posso doar livros ou brinquedos?
+    - Como faço pra participar ajudando vocês?
+    - Que tipos de contribuição são possíveis?
+    - Vocês aceitam doações materiais também?
+    - Tem outras formas além de dinheiro?
+    - Quais são as maneiras de ajudar a ONG?
+
+- intent: Sub_doacao_horarios_locais
+  examples: |
+    - Tem algum horário específico para entrega?
+    - Qual o endereço para entrega de doações?
+    - Vocês buscam doações na casa das pessoas?
+    - Vocês têm ponto de coleta externo?
+    - Posso levar a doação pessoalmente?
+    - Vocês aceitam doações fora do horário comercial?
+    - Qual o CEP da sede?
+    - Onde deixo os itens doados?
+    - Posso agendar entrega?
+    - Vocês fazem retirada de doações em casa?
+
+- intent: Sub_doacao_o_que_doar
+  examples: |
+    - Vocês aceitam móveis usados?
+    - Como sei o que posso doar?
+    - Posso doar eletrodomésticos?
+    - Vocês aceitam roupas novas?
+    - Aceitam brinquedos quebrados?
+    - O que não posso doar?
+    - Vocês aceitam alimentos perecíveis?
+    - Tem alguma restrição sobre o que doar?
+    - Posso doar objetos usados?
+    - Vocês aceitam produtos de higiene?
+
+- intent: Sub_doacao_paypal
+  examples: |
+    - Vocês aceitam pagamento pelo PayPal?
+    - Quero enviar dinheiro pelo PayPal para vocês
+    - Vocês têm conta no PayPal para doação?
+    - É possível doar pelo PayPal?
+    - Quero ajudar pelo PayPal
+    - Como funciona a doação pelo PayPal?
+    - Posso fazer uma doação pelo PayPal pelo celular?
+    - Doação via PayPal é segura?
+    - Link para doar pelo PayPal
+    - Vocês recebem doações pelo PayPal?
+
+- intent: Sub_doacao_pix
+  examples: |
+    - Pix # FRASE EXATA DO MENU PRINCIPAL
+    - Vocês têm chave Pix para doações?
+    - Posso doar via Pix pelo celular?
+    - É seguro doar pelo Pix?
+    - Quero doar pelo Pix
+    - Vocês recebem doações por Pix?
+    - Onde encontro a chave Pix?
+    - Como transferir por Pix para a ONG?
+    - Pix é uma forma válida de doação?
+    - Posso doar usando Pix?
+    - Qual é o número do Pix para doação?
+
+- intent: Sub_nota_fiscal_cadastrar_nota
+  examples: |
+    - Onde e como cadastrar a nota # FRASE EXATA DO SUB-MENU
+    - cadastrar # PALAVRA-CHAVE SIMPLES
+    - Onde coloco o CNPJ da ONG?
+    - Dá para doar manualmente?
+    - Como registrar minha nota sem CPF?
+    - Posso doar nota pelo celular?
+    - Onde cadastro minha nota fiscal?
+
+- intent: Sub_nota_fiscal_cnpj
+  examples: |
+    - CNPJ da ONG # FRASE EXATA DO SUB-MENU
+    - cnpj # PALAVRA-CHAVE SIMPLES
+    - qual o cnpj
+    - quero o cnpj
+    - Qual o CNPJ da ONG?
+    - Quero o CNPJ para doar
+    - Me passa o número da conta da ONG
+    - Me passa o CNPJ da nota
+    - cnpj doação
+    - Para doar nota paulista, qual o CNPJ?
+    - Onde encontro o CNPJ para doar nota fiscal?
+    - Vocês têm CNPJ para doação?
+    - Preciso do CNPJ para doar
+    - Qual é o CNPJ da ONG?
+
+- intent: Sub_nota_fiscal_como_fazer
+  examples: |
+    - Como fazer a doação # FRASE EXATA DO SUB-MENU
+    - Como doar via Nota Fiscal # NOVA FRASE EXATA DO MENU ATUALIZADO
+    - como fazer doação # SEM O 'A' - Para cobrir falhas de digitação
+    - como funciona a doacao # Adicionado
+    - fiscal
+    - Como ajudar com a nota fiscal?
+    - Quais os passos para doar minha nota?
+    - Onde cadastro para doar nota?
+    - Me ensina a doar pela Nota Fiscal Paulista
+    - Como doar para a sua entidade?
+    - Como faço para doar nota fiscal?
+    - Posso doar nota fiscal para vocês?
+    - Como funciona a doação pela Nota Paulista?
+    - Quero doar minha nota fiscal, como faço?
+    - Como doar nota fiscal?
+    - Passos para doar nota fiscal
+    - Como funciona a doação de nota fiscal?
+
+- intent: Sub_nota_fiscal_doacao_anonima
+  examples: |
+    - Fazer uma doação anônima # FRASE EXATA DO SUB-MENU
+    - anônima # PALAVRA-CHAVE SIMPLES
+    - anonimamente
+    - Dá para doar anonimamente?
+    - Quero doar, mas não quero me identificar
+    - A doação de nota é anônima?
+    - Posso doar sem me identificar?
+
+- intent: Sub_nota_fiscal_doacao_automatica
+  examples: |
+    - Configurar doação automática # FRASE EXATA DO SUB-MENU
+    - automática # PALAVRA-CHAVE SIMPLES
+    - automaticamente
+    - doar automaticamente
+    - Doação de Cupons
+    - Como cadastrar minha doação automática?
+    - Quero ajudar sempre com minhas notas
+    - Como faço para ativar a doação automática?
+    - Dá pra doar nota com CPF automático?
+    - Posso cadastrar para doar sempre?
+    - Tem como doar automaticamente?
+
+- intent: Sub_nota_fiscal_prazo_validade
+  examples: |
+    - Prazo e validade # FRASE EXATA DO SUB-MENU
+    - prazo # PALAVRA-CHAVE SIMPLES
+    - validade
+    - Existe um prazo para doar? # PERGUNTA QUE FALHOU ANTERIORMENTE
+    - limite
+    - vence
+    - A nota vence?
+    - Tem data limite para enviar as notas?
+    - Posso cadastrar notas antigas?
+    - Até quando posso cadastrar a nota?
+    - As notas têm validade para doação?
+
+- intent: Sub_nota_fiscal_problemas_comuns
+  examples: |
+    - Problemas comuns # FRASE EXATA DO SUB-MENU
+    - erro paulista
+    - erro nota
+    - erro doar
+    - erro
+    - O site não está funcionando, o que eu faço?
+    - Deu erro ao tentar doar a nota
+    - A plataforma da nota paulista está com problema
+    - Não estou conseguindo cadastrar minha nota
+    - Minha nota não foi aceita, por quê?
+    - O site da nota paulista está fora do ar
+    - Tentei doar e apareceu erro no site
+
+- intent: Sub_nota_fiscal_verificar_validacao
+  examples: |
+    - Verificar se a doação foi validada # FRASE EXATA DO SUB-MENU
+    - verificar # PALAVRA-CHAVE SIMPLES (para o caso 'verificar')
+    - Foi registrada mesmo?
+    - Fiz a doação, mas não sei se funcionou
+    - Tem como saber se validou?
+    - A doação entrou no sistema?
+    - A doação foi confirmada?
+    - Quero saber se a doação foi aceita
+    - Como saber se a doação deu certo?
+    - Não sei se a doação foi validada
+    - como verificar a validação
+    - quero verificar a doação
+
+- intent: Sub_nota_fiscal_problemas_cadastro
+  examples: |
+    - Cadastro, Desbloqueios de Senha, Problemas no Acesso # FRASE EXATA DO SUB-MENU
+    - problemas de cadastro
+    - desbloquear senha
+    - recuperar senha
+    - problemas no acesso
+    - cadastro pessoa fisica
+    - cadastro pessoa juridica
+    - alterar dados do cadastro
+    - inativar cadastro
+    - reativar cadastro
+    - desbloqueio de senha
+
+- intent: Sub_nota_fiscal_cadastro_pf
+  examples: |
+    - Cadastro de Pessoa Física # FRASE EXATA DO SUB-MENU
+    - como fazer cadastro pessoa fisica
+    - quero me cadastrar como pessoa fisica
+    - cadastro pf
+    - pessoa fisica cadastro
+    - como cadastrar no nota fiscal pf
+    - primeiro acesso pessoa fisica
+    - cadastrar como consumidor
+
+- intent: Sub_nota_fiscal_cadastro_pj
+  examples: |
+    - Cadastro de Pessoa Jurídica # FRASE EXATA DO SUB-MENU
+    - como fazer cadastro pessoa juridica
+    - quero cadastrar minha empresa
+    - cadastro pj
+    - pessoa juridica cadastro
+    - como cadastrar empresa nota fiscal
+    - cadastro cnpj
+    - cadastrar empresa
+
+- intent: Sub_nota_fiscal_reativar_cadastro
+  examples: |
+    - Reativação de Cadastro # FRASE EXATA DO SUB-MENU
+    - como reativar cadastro
+    - quero reativar meu cadastro
+    - reativar cadastro pf
+    - reativar cadastro pj
+    - cadastro inativo
+    - usuario inativo
+    - erro usuario inativo
+    - como resolver usuario inativo
+
+- intent: Sub_nota_fiscal_recuperar_senha
+  examples: |
+    - Recuperar senha # FRASE EXATA DO SUB-MENU
+    - esqueci minha senha
+    - como recuperar senha
+    - quero recuperar senha
+    - recuperar senha nota fiscal
+    - senha esquecida
+    - resetar senha
+    - alterar senha
+    - mudar senha
+
+- intent: Sub_nota_fiscal_desbloqueio_senha
+  examples: |
+    - Desbloqueio de Senha - Cadastro Pendente
+    - desbloquear senha
+    - senha bloqueada
+    - cadastro pendente desbloqueio
+    - como desbloquear senha
+    - senha travada
+    - desbloqueio senha
+    - senha pendente
+    - erro senha bloqueada
+
+- intent: Voltar
+  examples: |
+    - voltar pro menu
+    - como volto?
+    - voltar ao menu principal
+    - menu
+    - quero ir pro começo
+    - voltar pro início
+    - quero voltar
+    - voltar
+
+- intent: voltar_menu_principal
+  examples: |
+    - Voltar para o menu principal
+    - voltar ao menu inicial
+    - menu principal
+    - voltar para o início
+
+- intent: greet
+  examples: |
+    - Olá
+    - Bom dia
+
+- intent: affirm
+  examples: |
+    - sim
+    - claro
+
+- intent: deny
+  examples: |
+    - não
+    - de jeito nenhum
+
+- intent: bot_challenge
+  examples: |
+    - você é um bot?
+    - quem é você?
+
+- intent: nlu_fallback
+  examples: |
+    - o preço do tomate subiu muito esse mês
+    - qual o placar do jogo de ontem
+    - quantos planetas tem o sistema solar
+    - quero comprar um carro novo
+    - me conta uma piada
+    - qual a capital da França
+    - não entendi nada
+    - isso não me ajudou
+    - batatinha quando nasce
+    - arroz
+    - erro batata
+    - eu nao entendi nada
+    - fala serio
+    - nao sei
+    - o que voce ta falando
+    - blablabla
+    - teste teste
+    - uma frase aleatoria
+    - o bot ta quebrado
+    - nao estou gostando
+    - me ajude
+    - fala bobagem
+
+- intent: affirm
+  examples: |
+    - sim
+    - yes
+    - claro
+    - com certeza
+    - pode ser
+    - sim por favor
+    - quero sim
+    - tenho sim
+    - sim, tenho
+    - tenho dúvidas
+    - tenho mais perguntas
+    - quero saber mais
+
+- intent: deny
+  examples: |
+    - não
+    - nao
+    - no
+    - não obrigado
+    - nao obrigado
+    - não precisa
+    - nao precisa
+    - tudo certo
+    - não tenho
+    - nao tenho
+    - sem dúvidas
+    - sem duvidas
+    - já sei tudo
+    - ja sei tudo
+    - tchau
+    - até logo
+    - ate logo
+    - valeu
+    - obrigado
+    - obrigada
+
+- intent: sobre_projeto
+  examples: |
+    - sobre o projeto
+    - quem vocês são
+    - o que faz a ong
+    - qual é a missão
+    - conte sobre o projeto
+    - conhecer o projeto
+    - informações sobre o projeto
+    - sobre a ong
+    - o que é o ritmos do coração
+    - fale sobre vocês
+
+- intent: localizacao_horarios
+  examples: |
+    - onde vocês ficam
+    - qual o endereço
+    - localização
+    - como chegar
+    - horário de funcionamento
+    - horarios
+    - vocês abrem que horas
+    - quando posso visitar
+    - endereço da sede
+    - localização e horários
