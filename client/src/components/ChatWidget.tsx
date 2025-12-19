@@ -7,7 +7,7 @@ import TypingIndicator from "./TypingIndicator";
 import FloatingChatButton from "./FloatingChatButton";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion, AnimatePresence } from "framer-motion";
-import { Music } from "lucide-react";
+import { SendHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -25,8 +25,10 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [currentQuickReplies, setCurrentQuickReplies] = useState<QuickReply[]>([]);
+  const [inputText, setInputText] = useState("");
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -84,6 +86,7 @@ export default function ChatWidget() {
     setTimeout(() => {
       setMessages([]);
       setCurrentQuickReplies([]);
+      setInputText("");
       localStorage.removeItem(STORAGE_KEY);
     }, 300);
   };
@@ -106,6 +109,25 @@ export default function ChatWidget() {
       setCurrentQuickReplies(response.quickReplies || []);
       setIsTyping(false);
     }, 800);
+  };
+
+  const handleSendMessage = () => {
+    if (!inputText.trim()) return;
+
+    const userMessage: Message = {
+      id: `user-${Date.now()}`,
+      text: inputText,
+      isBot: false,
+      timestamp: new Date()
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setCurrentQuickReplies([]);
+    
+    const intent = detectIntent(inputText);
+    setInputText("");
+    
+    sendBotMessage(intent);
   };
 
   const handleQuickReplyClick = (payload: string) => {
@@ -179,31 +201,34 @@ export default function ChatWidget() {
                 <div ref={messagesEndRef} />
               </ScrollArea>
 
-              <div className="p-3.5 bg-muted/30 border-t border-border/50">
-                <div className="flex items-center justify-center gap-2.5">
-                  <div className="flex -space-x-1">
-                    {[1, 2, 3].map((i) => (
-                      <motion.div 
-                        key={i} 
-                        animate={{ 
-                          y: [0, -3, 0],
-                          opacity: [0.3, 0.6, 0.3]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.4,
-                          ease: "easeInOut"
-                        }}
-                        className="text-primary/60" 
-                      >
-                        <Music className="w-3.5 h-3.5" />
-                      </motion.div>
-                    ))}
-                  </div>
-                  <p className="text-[9px] uppercase font-bold tracking-[0.15em] text-muted-foreground/50">
-                    Sempre aqui para ajudar
-                  </p>
+              <div className="p-3 bg-muted/30 border-t border-border/50">
+                <div className="flex items-center gap-2">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSendMessage();
+                      }
+                    }}
+                    placeholder="Digite sua mensagem..."
+                    className="flex-1 bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all placeholder:text-muted-foreground/50"
+                  />
+                  <button
+                    onClick={handleSendMessage}
+                    disabled={!inputText.trim()}
+                    className={cn(
+                      "w-10 h-10 rounded-xl flex items-center justify-center transition-all",
+                      inputText.trim()
+                        ? "bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95"
+                        : "bg-muted text-muted-foreground cursor-not-allowed"
+                    )}
+                  >
+                    <SendHorizontal className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
             </div>

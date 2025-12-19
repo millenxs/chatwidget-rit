@@ -24,7 +24,7 @@ export default function FloatingChatButton({
       <Button
         size="icon"
         className={
-          "w-16 h-16 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-all duration-300 relative border-0 flex items-center justify-center overflow-hidden " +
+          "w-16 h-16 p-0 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.25)] transition-all duration-300 relative border-0 flex items-center justify-center overflow-visible [&_svg]:!w-7 [&_svg]:!h-7 " +
           (isOpen 
             ? "bg-foreground text-background hover:bg-foreground/90 rotate-90" 
             : "bg-primary text-primary-foreground hover:shadow-primary/30 hover:shadow-xl")
@@ -43,7 +43,7 @@ export default function FloatingChatButton({
               transition={{ duration: 0.2 }}
               className="flex items-center justify-center"
             >
-              <X className="w-16 h-16" />
+              <X strokeWidth={2.5} /> 
             </motion.div>
           ) : (
             <motion.div
@@ -54,7 +54,7 @@ export default function FloatingChatButton({
               transition={{ duration: 0.2 }}
               className="flex items-center justify-center"
             >
-              <MessageSquareText className="w-16 h-16" />
+              <MessageSquareText strokeWidth={2} />
             </motion.div>
           )}
         </AnimatePresence>
